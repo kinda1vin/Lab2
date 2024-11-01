@@ -20,12 +20,23 @@ def find_min_max(temps):
     return [int(min_temp), int(max_temp)]
 
 def sort_temperature(temps):
-    print("sort_temperature")
-    return []
+    if len(temps) > 0:
+        temps.sort()
+        return temps
+    else:   
+        return []
 
 def calc_median_temperature(temps):
     print("calc_median_temperature")
-    return 0.0
+    temp_array = sort_temperature(temps)
+    num_array = len(temp_array)
+    if num_array % 2 == 0:
+        median1 = temp_array[num_array//2]
+        median2 = temp_array[num_array//2 - 1]
+        median = (median1 + median2) / 2
+    else:
+        median = temp_array[num_array//2]
+    return median
 
 #main function
 def main():
